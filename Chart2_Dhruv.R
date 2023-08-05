@@ -22,7 +22,8 @@ select(Release.Date, release_year, release_month)
 ### variable, the year, and the month
 
 sorting_movies_into_years <- all_films_by_year %>% group_by(release_year) %>%
-count(str_trim(release_month))
+count(months = str_trim(release_month)) %>% mutate(Jan)
+
 
 ### Created a new data frame by grouping all of the films by year and then counting how many
 ### movies are in each month of that year, had to trim spaces around each string to 
@@ -30,6 +31,7 @@ count(str_trim(release_month))
 
 ### Using a line plot for this, looked at my A4 code for this (all sources in there)
 ### Sources:
+### http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
 ### https://www.geeksforgeeks.org/how-to-create-a-plot-using-ggplot2-with-multiple-lines-in-r/#
 ### https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
 ### https://environmentalcomputing.net/graphics/ggplot/ggplot-labels/
@@ -44,7 +46,7 @@ count(str_trim(release_month))
 colors <- c("Asian Americans/Pacific Islanders" = "purple", "Black People" = "green",
             "Latinx People" = "red", "Native Americans" = "blue", "White People" = "orange")
 
-line_plot_time <- ggplot(totals_median, aes(year)) +
+line_plot_time <- ggplot(totals_median, aes(release_year)) +
 geom_line(aes(y = aapi_med, color = "Asian Americans/Pacific Islanders"), 
 size = 1, linetype = 2) + geom_line(aes(y = black_med, color = "Black People"), 
 size = 1, linetype = 2) + geom_line(aes(y = latinx_med, color = "Latinx People"), 

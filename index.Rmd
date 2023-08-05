@@ -62,13 +62,10 @@ Describe why you included the table and what information it reveals
 
 ### Chart 1
 
-Include a chart
+Selecting the appropriate type of chart or graph is vital when visualizing data. It guarantees that the information is presented in a clear and understandable format, especially when dealing with categorical values like the different genres of the top 1000 highest-grossing movies. A bar chart is often the most effective choice in this case as it provides a simple way to comprehend the data. The chart reveals that some movies belong to more than one genre, making it difficult to determine the most prevalent genre. Nevertheless, the chart highlights the genre that appears frequently in the top 1000 highest-earning movies, considering the revenue generated globally by each genre. This enables us to identify the frequently occurring genre while providing a comprehensive overview of the data. 
 
-Describe why you chose this chart and what information it reveals
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, code = readLines("chart1_example.R")}
+print(bar_chart)
 ```
 
 ### Chart 2

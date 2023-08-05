@@ -1,3 +1,5 @@
+movie_data <- read.csv("/Users/dhruv/Downloads/INFO 201/exploratory-analysis-p02-dhruvj20/Movies.csv", 
+header = TRUE, sep = ",", stringsAsFactors = TRUE)
 
 genre_sales <- movie_data %>%
   separate_rows(Genre, sep = ", ") %>%  

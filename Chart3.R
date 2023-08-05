@@ -4,7 +4,7 @@ library(tidyverse)
 library(patchwork)
 library(janitor)
 
-data <- read_csv("Highest Holywood Grossing Movies.csv")
+data <- read_csv("Movies.csv")
 
 distributor_sale <- data %>%
   group_by(Distributor) %>%

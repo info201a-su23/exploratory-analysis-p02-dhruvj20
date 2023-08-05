@@ -80,5 +80,7 @@ Describe why you chose this chart and what information it reveals
 ### Chart 3
 
 Include a chart
+``````{r, echo = FALSE, code = readLines("Chart3.R")}
+```
 
 Describe why you chose this chart and what information it reveals

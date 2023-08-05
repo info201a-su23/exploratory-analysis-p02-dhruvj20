@@ -76,8 +76,7 @@ Describe why you chose this chart and what information it reveals
 
 ### Chart 3
 
-Include a chart
 ```{r, echo = FALSE, code = readLines("Chart3.R")}
 ```
 
-Describe why you chose this chart and what information it reveals
+To answer the research question "which distributors produce the most movies" as well as the productivity of movie production across distributors, I use a bar chart to visualize this comparison. As "Distributors" is a categorical value, using bar chart will provide a straightforward way to observe the frequency or count of each category in the data . Additionally, it displays the category labels clearly and arranges the value assigned to each distributor in a tidy manner.The X axis in this plot represents the overall number of films, and the Y axis represents the various distributors. In comparison to other distributors, Warner Bros. appears to produce the most movies. 

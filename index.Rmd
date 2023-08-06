@@ -83,6 +83,8 @@ Between which years did certain distributors peak in terms of sales and movies m
 
 Has the amount of movie releases across the months of the year changed over the duration of this dataset?
 
+Has the movie license (PG-13 vs PG) had an effect on overall worldwide sales within the top 1000 movies?
+
 How does the generic tag offered by distributors impact the Movie Box office performance?
 
 This research project aims to analyze the top 1000 highest-grossing movies, investigating the relationships between distributor, runtime, genre, and tags with sales from domestic to international.
@@ -274,7 +276,6 @@ The main limitation of this project is that the dataset we're using only consist
 This data doesn't account for any of the movies closer to the median or minimum of a dataset that would include all movies (a dataset with a much higher sample size) in terms of gross-income, so the set in general lacks breadth, which limits our ability to convey generalizable information about movies worldwide.
 
 Our dataset is also limited to income as the main categorization of movie response, but movie reviews are an important factor missing from the data, which could limit our ability to create the best possible criteria to produce a movie based on certain descriptors.
->>>>>>> 747a905117472554d7b5fe15d786bf7aee8f67dd
 
 Lastly, there are some NA values under different categories of the dataset, which omits some of the movies depending on the target of our analysis, thus reducing an already-skewed sample size and further constraining the breadth of our dataset.
 
@@ -299,11 +300,22 @@ bar_chart
 ### Chart 2
 
 ```{r}
-line_plot_time
+dhruv_bar_plot
 ```
 
+Source: https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c470c37e-a4fd-40d7-8c78-b0530123d189
 
-Describe why you chose this chart and what information it reveals
+I chose a bar graph to represent the relationship between movie license/rating (a categorical variable) and the average worldwide sales in dollars (a continuous variable). I
+
+I did so because bars are the best way to show the quantitative differences between the movie license categories represented on the X-axis due to the space they encompass, making said differences in average worldwide sales more noticeable to the viewer's eye. 
+
+I think this chart is especially useful because it could provide useful information to a potential film director on which movie rating to design/cater to based on the highest mean influx of money worldwide (based on the top 1000 domestically highest-performing movies recorded).
+
+While all of the movie licenses make the same income on the scale of hundreds of millions (according to this dataset), rated R movies from this dataset perform the lowest in terms of mean worldwide sales with a value of ```mean_money_film %>% filter(License == "R") %>% select(avg_revenue) %>% pull()``` dollars. 
+
+G-rated and PG-13-rated films from this dataset averaged almost identically at ```mean_money_film %>% filter(License == "G") %>% select(avg_revenue) %>% pull()``` dollars and ```mean_money_film %>% filter(License == "PG-13") %>% select(avg_revenue) %>% pull()``` dollars respectively, with PG-rated films from this dataset averaging slightly less at ```mean_money_film %>% filter(License == "PG") %>% select(avg_revenue) %>% pull()``` dollars. 
+
+The main takeaway from this bar graph is that according to this dataset, a film director designing a movie script for any of these 4 ratings will make money on the same scale, but to optimize worldwide sales, they should significantly prioritize G & PG-13-rated films over R-rated films.
 
 ### Chart 3
 
@@ -311,4 +323,8 @@ Describe why you chose this chart and what information it reveals
 distributor_plot
 ```
 
-To answer the research question "which distributors produce the most movies" as well as the productivity of movie production across distributors, I use a bar chart to visualize this comparison. As "Distributors" is a categorical value, using bar chart will provide a straightforward way to observe the frequency or count of each category in the data . Additionally, it displays the category labels clearly and arranges the value assigned to each distributor in a tidy manner.The X axis in this plot represents the overall number of films, and the Y axis represents the various distributors. In comparison to other distributors, Warner Bros. appears to produce the most movies. 
+To answer the research question "which distributors produce the most movies" as well as the productivity of movie production across distributors, I use a bar chart to visualize this comparison.
+
+As "Distributors" is a categorical value, using bar chart will provide a straightforward way to observe the frequency or count of each category in the data . Additionally, it displays the category labels clearly and arranges the value assigned to each distributor in a tidy manner.
+
+The X axis in this plot represents the overall number of films, and the Y axis represents the various distributors. In comparison to other distributors, Warner Bros. appears to produce the most movies. 

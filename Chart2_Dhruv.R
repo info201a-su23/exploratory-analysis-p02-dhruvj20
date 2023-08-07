@@ -6,6 +6,9 @@ library(stringr)
 ### https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
 ### https://canvas.uw.edu/courses/1643812/files/folder/Lectures_PG (for reference)
 
+movies_data <- read.csv("/Users/dhruv/Downloads/INFO 201/exploratory-analysis-p02-dhruvj20/Movies.csv", 
+header = TRUE, sep = ",", stringsAsFactors = FALSE)
+
 all_films_by_license <- movies_data %>% select(License, World.Sales..in...)
 
 ### Filtering the movies dataframe into license/rating and worldwide sales only
@@ -21,6 +24,36 @@ dhruv_bar_plot <- ggplot(mean_money_film, aes(x = License, y = avg_revenue)) +
 geom_bar(stat = "identity") + labs(y = "Average Worldwide Sales (Dollars)", 
 x = "Movie License (Rating)", title = "Worldwide Sales vs Movie Licenses", 
 color = "Legend") + theme(plot.title = element_text(hjust = 0.5)) 
+
+### Creating a bar graph comparing license and the average revenue
+
+R_revenue <- mean_money_film %>% filter(License == "R") %>% select(avg_revenue) %>% pull()
+
+PG_revenue <- mean_money_film %>% filter(License == "PG") %>% select(avg_revenue) %>% pull()
+
+PG13_revenue <- mean_money_film %>% filter(License == "PG-13") %>% select(avg_revenue) %>% pull()
+
+G_revenue <- mean_money_film %>% filter(License == "G") %>% select(avg_revenue) %>% pull()
+
+### Creating variables with all the average revenues referenced in R Markdown
+
+funct_R_revenue <- function(){
+  return (R_revenue)
+}
+
+funct_PG_revenue <- function(){
+  return (PG_revenue)
+}
+
+funct_PG13_revenue <- function(){
+  return (PG13_revenue)
+}
+
+funct_G_revenue <- function(){
+  return (G_revenue)
+}
+
+### Creating functions to return all these variables (didn't work in R Markdown)
 
 ### Sources:
 ### http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf

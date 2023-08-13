@@ -1,5 +1,6 @@
 library(tidyverse)
 library(stringr)
+library(plotly)
 
 ### Hadn't read a CSV file via Downloads in a while, used code from A2 for some help with that
 ### Sources (looked at these for my original idea, had to scrap because code wasn't working): 
@@ -24,6 +25,8 @@ dhruv_bar_plot <- ggplot(mean_money_film, aes(x = License, y = avg_revenue)) +
 geom_bar(stat = "identity") + labs(y = "Average Worldwide Sales (Dollars)", 
 x = "Movie License (Rating)", title = "Worldwide Sales vs Movie Licenses", 
 color = "Legend") + theme(plot.title = element_text(hjust = 0.5)) 
+
+ggplotly(dhruv_bar_plot)
 
 ### Creating a bar graph comparing license and the average revenue
 
